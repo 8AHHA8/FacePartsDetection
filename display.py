@@ -1,6 +1,4 @@
-import cv2
 import customtkinter
-from PIL import Image, ImageTk
 
 customtkinter.set_appearance_mode("System")
 customtkinter.set_default_color_theme("green")

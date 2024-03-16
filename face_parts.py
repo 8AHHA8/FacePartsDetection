@@ -1,7 +1,7 @@
 import numpy as np
 import cv2
 from PIL import Image, ImageTk
-from display import app, custom_frame, camera_frame, camera_canvas
+from display import app, camera_canvas
 
 eye_cascade = cv2.CascadeClassifier('.\opencv\data\haarcascades\haarcascade_eye.xml')
 mouth_cascade = cv2.CascadeClassifier('.\opencv\data\haarcascades\haarcascade_smile.xml')

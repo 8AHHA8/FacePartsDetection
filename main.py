@@ -4,7 +4,7 @@ import customtkinter
 from face_parts import eyes, mouth, nose
 from PIL import Image, ImageTk
 
-from display import app, custom_frame, camera_frame, camera_canvas
+from display import app, custom_frame, camera_canvas
 
 face_cascade = cv2.CascadeClassifier('.\opencv\data\haarcascades\haarcascade_frontalface_alt2.xml')
 
