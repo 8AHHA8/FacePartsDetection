@@ -8,6 +8,8 @@ eye_cascade = cv2.CascadeClassifier('.\opencv\data\haarcascades\haarcascade_eye.
 mouth_cascade = cv2.CascadeClassifier('.\opencv\data\haarcascades\haarcascade_smile.xml')
 nose_cascade = cv2.CascadeClassifier('.\opencv\data\haarcascades\haarcascade_mcs_nose.xml')
 
+# __________________________________________________________________________________________________________________
+
 def face():
     print("face button pressed")
     
@@ -34,6 +36,8 @@ def face():
     cap.release()
     cv2.destroyAllWindows()
 pass
+
+# __________________________________________________________________________________________________________________
 
 def eyes():
     print("eyes button pressed")
@@ -62,6 +66,8 @@ def eyes():
     cv2.destroyAllWindows()
 pass
 
+# __________________________________________________________________________________________________________________
+
 def mouth():
     print("mouth button pressed")
     
@@ -89,6 +95,8 @@ def mouth():
     cv2.destroyAllWindows()
 pass
 
+# __________________________________________________________________________________________________________________
+
 def nose():
     print("nose button pressed")
     
@@ -115,3 +123,5 @@ def nose():
     cap.release()
     cv2.destroyAllWindows()
 pass
+
+# __________________________________________________________________________________________________________________
