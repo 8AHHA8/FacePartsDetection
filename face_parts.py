@@ -3,12 +3,41 @@ import cv2
 from PIL import Image, ImageTk
 from display import app, camera_canvas
 
+face_cascade = cv2.CascadeClassifier('.\opencv\data\haarcascades\haarcascade_frontalface_alt2.xml')
 eye_cascade = cv2.CascadeClassifier('.\opencv\data\haarcascades\haarcascade_eye.xml')
 mouth_cascade = cv2.CascadeClassifier('.\opencv\data\haarcascades\haarcascade_smile.xml')
 nose_cascade = cv2.CascadeClassifier('.\opencv\data\haarcascades\haarcascade_mcs_nose.xml')
 
+def face():
+    print("face button pressed")
+    
+    cap = cv2.VideoCapture(0)
+
+    while(True):
+        ret, img = cap.read()
+        img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+        gray = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)
+        faces = face_cascade.detectMultiScale(gray, scaleFactor=1.05, minNeighbors=5)
+        
+        for (x, y, w, h) in faces:
+            cv2.rectangle(img, (x, y), (x+w, y+h), (0, 190, 0), 2)
+        
+        pil_img = Image.fromarray(img)
+        tk_img = ImageTk.PhotoImage(image=pil_img)
+        
+        camera_canvas.create_image(0, 0, anchor="nw", image=tk_img)
+        app.update()
+        
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            break
+
+    cap.release()
+    cv2.destroyAllWindows()
+pass
 
 def eyes():
+    print("eyes button pressed")
+    
     cap = cv2.VideoCapture(0)
     
     while(True):
@@ -34,6 +63,8 @@ def eyes():
 pass
 
 def mouth():
+    print("mouth button pressed")
+    
     cap = cv2.VideoCapture(0)
     
     while(True):
@@ -59,6 +90,8 @@ def mouth():
 pass
 
 def nose():
+    print("nose button pressed")
+    
     cap = cv2.VideoCapture(0)
     
     while(True):

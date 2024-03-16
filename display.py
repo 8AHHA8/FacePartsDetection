@@ -6,6 +6,8 @@ customtkinter.set_default_color_theme("green")
 app = customtkinter.CTk()
 app.geometry("942x440")
 
+app.resizable(False, False)
+
 custom_frame = customtkinter.CTkFrame(master=app, width=300, height=240)
 custom_frame.pack(side="left", fill="y")
 
