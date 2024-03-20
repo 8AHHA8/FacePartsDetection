@@ -1,3 +1,6 @@
+conda create --name face_detection
+activate face_detection
+python main.py
 absl-py==2.0.0
 alabaster==0.7.13
 altair==5.2.0
