@@ -49,9 +49,14 @@ def eyes():
         gray = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)
         eyes = eye_cascade.detectMultiScale(gray)
         
-        for (ex, ey, ew, eh) in eyes:
-            cv2.rectangle(img, (ex, ey), (ex+ew, ey+eh), (190, 190, 0), 2)
+        # for (ex, ey, ew, eh) in eyes:
+        #     cv2.rectangle(img, (ex, ey), (ex+ew, ey+eh), (190, 190, 0), 2)
             
+        for (x, y, w, h) in eyes:
+            center_coordinates = x + w // 2, y + h // 2
+            radius = w // 2 #pr h / 2
+            cv2.circle(img, center_coordinates, radius, (0, 190, 0), 3)  
+                
         pil_img = Image.fromarray(img)
         tk_img = ImageTk.PhotoImage(image=pil_img)
         
@@ -79,7 +84,7 @@ def mouth():
         mouth = mouth_cascade.detectMultiScale(gray, 1.7, 11)
         
         for (sx, sy, sw, sh) in mouth:
-            cv2.rectangle(img, (sx,sy),(sx+sw,sy+sh),(0, 190, 190),2)
+            cv2.rectangle(img, (sx,sy),(sx+sw,sy+sh),(190, 190, 190),2)
             
         pil_img = Image.fromarray(img)
         tk_img = ImageTk.PhotoImage(image=pil_img)
@@ -107,8 +112,13 @@ def nose():
         gray = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY) 
         nose = nose_cascade.detectMultiScale(gray, 1.3, 5)
         
+        # for (x, y, w, h) in nose:
+        #     cv2.rectangle(img, (x,y), (x+w,y+h), (190,190,190), 2)
+        
         for (x, y, w, h) in nose:
-            cv2.rectangle(img, (x,y), (x+w,y+h), (190,190,190), 2)
+            img = cv2.line(img, (x+50,y+75), (x,y), (190,190,190), 3)
+            img = cv2.line(img, (x,y), (x,y), (190,190,190), 3)
+            img = cv2.line(img, (x,y), (x,y), (190,190,190), 3)
             
         pil_img = Image.fromarray(img)
         tk_img = ImageTk.PhotoImage(image=pil_img)
